@@ -486,7 +486,7 @@ body {
 }
 
 @media screen and (min-width: 850px) {
-  feature-item:hover {
+  .feature-item:hover {
     box-sizing: border-box;
     background-color: var(--secondary);
     border-color: var(--accent);
