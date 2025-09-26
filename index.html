@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cal+Sans&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- preload the json files for faster loading -->
+  <link rel="preload" href="/config/contributors.json" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="/config/rotur-team.json" as="fetch" crossorigin="anonymous">
+  <link rel="preload" href="/config/features.json" as="fetch" crossorigin="anonymous">
+</head>
+<!-- Template for fast loading speeds -->
+<template id="tpl-contributor">
+  <div class="pfp" draggable="false" (dragstart)="false;" class="unselectable">
+    <img src="@pfp" class="unselectable" title="@name">
+  </div>
+</template>
+
+<template id="tpl-social">
+  <a class="social" title="@platform" href="@link">
+    <img class="icon" src="@icon">
+  </a>
+</template>
+
+<template id="tpl-placeholder">
+  <div class="placeholder"></div>
+</template>
+
+<template id="tpl-card">
+  <div class="card row">
+    <img src="@pfp" class="pfp">
+    <div class="column">
+      <div class="name row">
+        <div class="user">
+          @name
+        </div>
+        <div class="role">
+          @role
+        </div>
+      </div>
+      <div class="links row">
+        <a class="profile" href="@link">
+          @platform
+        </a>
+        @social0
+        @social1
+        @social2
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="tpl-featls">
+  <div class="feature-list column">
+    <p class="title">
+      @title
+    </p>
+    @list
+  </div>
+</template>
+
+<template id="tpl-feat">
+  <div class="feature-item">
+    <div class="row">
+      <img src="@icon">
+      <p class="topic title">@topic</p>
+    </div>
+    <p class="desc body">@desc</p>
+  </div>
+</template>
+
+<body>
+  <div id="header" class="row">
+    <img src="assets/branding/rotur-logo.svg" id="logo">
+    <div class="vrule"></div>
+    <a href="" class="tab">
+      <p>Github</p>
+    </a>
+    <a href="" class="tab">
+      <p>Systems</p>
+    </a>
+    <a href="" class="tab">
+      <p>Status</p>
+    </a>
+    <a href="" class="tab">
+      <p>Docs</p>
+    </a>
+  </div>
+
+  <div class="body" style="position: fixed; font-size: 12px; z-index: 9999;">
+    Disclaimer: This site is not official. It has only been uploaded for the sake of gathering feedback.<br>
+    Please do not take anything on this website as fact; Rotur does not currently associate with it.
+  </div>
+
+  <div id="backdrop"></div>
+
+  <div id="content" class="column">
+
+    <div id="wrapper-about" class="row">
+      <div id="about" class="column">
+        <p class="title">
+          About Rotur
+        </p>
+        <div class="rule"></div>
+        <p class="body">
+          Rotur is a robust networking protocol and account system based on websockets. We aim to create a seamless,
+          unified experience across multiple applications through the use of a central account system. Our tools make it
+          easier than ever to socialize, sync data, and connect with multiple platforms at the same time.
+        </p>
+      </div>
+      <div id="gallery" class="column">
+        <img src="assets/screenshot.png" alt="Demo of the Rotur MistWarp extension." class="screenshot">
+        <img src="assets/screenshot.png" alt="Demo of the Rotur MistWarp extension." class="screenshot">
+      </div>
+    </div>
+
+    <div id="wrapper-team" class="column">
+      <p class="title">
+        Meet the Team
+      </p>
+      <div id="team-cards">
+        <!-- Injected via index.js -->
+      </div>
+      <p class="body">
+        Rotur is an open-source project with many contributors, including the people below.
+      </p>
+      <div id="carousel">
+        <!-- Injected via index.js -->
+        <div id="carousel-wrapper" class="row">
+          <div class="channel row"></div>
+          <div class="channel row"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="wrapper-features" class="column">
+      <p class="feature-title title">
+        Features
+      </p>
+      <div class="rule2"></div>
+      <div id="features" class="row">
+        <!-- Injected via index.js -->
+      </div>
+    </div>
+
+    <div id="wrapper-try" class="column">
+      <p class="body">
+        If any of this sounds interesting to you, we invite you to try out Rotur!
+      </p>
+      <div class="row">
+        <a href="" class="button-link">
+          MistWarp Extension
+        </a>
+        <a href="" class="button-link">
+          Rotur Documentation
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div id="footer" class="column">
+    <div class="legal row">
+      <a href="https://rotur.dev/terms-of-service.html">
+        Terms of Service
+      </a>
+      <div class="vrule2"></div>
+      <a href="https://rotur.dev/privacy-policy.html">
+        Privacy Policy
+      </a>
+    </div>
+    <p class="body">
+      © 2025 Rotur. All rights reserved.
+    </p>
+  </div>
+  <script src="index.js" async defer></script>
+</body>
+
+</html>
