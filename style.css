@@ -526,7 +526,6 @@ body {
   #team-cards {
     width: auto;
     min-width: 250px;
-    max-width: 90vw;
     grid-template-columns: 100%;
   }
 
@@ -549,7 +548,7 @@ body {
 
   #gallery {
     width: 75%;
-    min-width: 400px;
+    min-width: 360px;
     align-content: center;
   }
 
@@ -559,7 +558,7 @@ body {
   }
 
   #carousel {
-    min-width: 400px;
+    min-width: 360px;
   }
 
   #features {
