@@ -36,11 +36,17 @@
 html,
 body {
   height: 100%;
+  width: 100vw;
   margin: 0px;
 }
 
 body {
   background-color: var(--background);
+}
+
+#content {
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 .column {
@@ -142,6 +148,7 @@ body {
 #team-cards {
   width: 55%;
   max-width: var(--max-width);
+  min-width: 800px;
   display: grid;
   grid-template-columns: 50% 50%;
 }
@@ -158,6 +165,7 @@ body {
   animation: drop-in 1s ease-out forwards;
   background-color: var(--tertiary);
   margin: 4px;
+  min-width: 350px;
   aspect-ratio: 4;
   border-radius: 12px;
   padding: 16px;
@@ -244,6 +252,7 @@ body {
   height: 136px;
   width: calc(55% - 8px);
   max-width: var(--max-width);
+  min-width: 800px;
   background-color: var(--tertiary);
   margin: 4px;
   margin-bottom: 36px;
@@ -268,6 +277,7 @@ body {
 #wrapper-features {
   width: 60%;
   max-width: 1200px;
+  min-width: 750px;
   background-color: var(--primary);
   border: solid var(--secondary) 1px;
   border-radius: 0px 0px 36px 36px;
@@ -340,36 +350,6 @@ body {
       transition: margin-top 0.5s;
     }
   }
-
-  &>.feature-item:hover {
-    box-sizing: border-box;
-    background-color: var(--secondary);
-    border-color: var(--accent);
-    height: 250px;
-
-    &>div {
-      &>img {
-        visibility: hidden;
-        margin-right: 0px;
-        height: 0px;
-      }
-
-      &>.topic {
-        color: transparent;
-      }
-    }
-
-    &>.topic {
-      font-size: 18px;
-      font-family: "Cal Sans", sans-serif;
-      font-weight: 400;
-      color: var(--text);
-    }
-
-    &>.desc {
-      margin-top: 0px;
-    }
-  }
 }
 
 #wrapper-try {
@@ -377,6 +357,7 @@ body {
   border-radius: 24px;
   width: 50%;
   max-width: 800px;
+  min-width: 600px;
   height: 200px;
   position: relative;
   top: -150px;
@@ -393,11 +374,6 @@ body {
     gap: 12px;
     height: 72px;
   }
-}
-
-body:has(.feature-item:hover) #wrapper-try {
-  top: -250px;
-  filter: opacity(0%);
 }
 
 .button-link {
@@ -488,6 +464,7 @@ body:has(.feature-item:hover) #wrapper-try {
   background-color: var(--footer);
   backdrop-filter: blur(4px);
   padding: 24px;
+  width: 100vw;
 }
 
 .legal {
@@ -506,4 +483,109 @@ body:has(.feature-item:hover) #wrapper-try {
   height: 80%;
   background-color: var(--text);
   width: 2px;
+}
+
+@media screen and (min-width: 850px) {
+  feature-item:hover {
+    box-sizing: border-box;
+    background-color: var(--secondary);
+    border-color: var(--accent);
+    height: 250px;
+
+    &>div {
+      &>img {
+        visibility: hidden;
+        margin-right: 0px;
+        height: 0px;
+      }
+
+      &>.topic {
+        color: transparent;
+      }
+    }
+
+    &>.topic {
+      font-size: 18px;
+      font-family: "Cal Sans", sans-serif;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    &>.desc {
+      margin-top: 0px;
+    }
+  }
+
+  body:has(.feature-item:hover) #wrapper-try {
+    top: -250px;
+    filter: opacity(0%);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  #team-cards {
+    width: auto;
+    min-width: 250px;
+    max-width: 90vw;
+    grid-template-columns: 100%;
+  }
+
+  .card {
+    min-width: 270px;
+    max-width: 360px;
+  }
+
+  #wrapper-team>p {
+    max-width: 80vw;
+    text-align: center;
+  }
+
+  #wrapper-about {
+    flex-direction: column-reverse;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    width: 100vw;
+  }
+
+  #gallery {
+    width: 75%;
+    min-width: 400px;
+    align-content: center;
+  }
+
+  #about {
+    width: 75%;
+    min-width: 300px;
+  }
+
+  #carousel {
+    min-width: 400px;
+  }
+
+  #features {
+    flex-direction: column;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .feature-list>.feature-item {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 18px;
+  }
+
+  #wrapper-try {
+    top: -30px;
+    height: 300px;
+    &>p {
+      max-width: 80vw;
+      text-align: center;
+    }
+    &>.row {
+      flex-direction: column;
+      &>* {
+        text-align: center;
+      }
+    }
+  }
 }
