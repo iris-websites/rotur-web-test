@@ -14,7 +14,7 @@
   --max-width: 900px;
 }
 
-/* stolen from some poor fucker on codepen */
+/* possibly temporary, doesn't work as intended */
 #backdrop {
   width: 100%;
   height: 100%;
@@ -406,9 +406,6 @@ body {
 }
 
 #header {
-  position: fixed;
-  top: 18px;
-  right: 18px;
   background-color: var(--header);
   border: var(--header-border) 2px solid;
   border-radius: 24px;
@@ -418,7 +415,6 @@ body {
   height: 48px;
   padding: 0px 12px 0px 20px;
   overflow: hidden;
-  z-index: 999;
   backdrop-filter: blur(4px);
 }
 
@@ -486,6 +482,13 @@ body {
 }
 
 @media screen and (min-width: 850px) {
+  #header-wrapper {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 999;
+  }
+
   .feature-item:hover {
     box-sizing: border-box;
     background-color: var(--secondary);
@@ -523,6 +526,16 @@ body {
 }
 
 @media screen and (max-width: 850px) {
+  #header-wrapper {
+    position: fixed;
+    top: 18px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+  }
+
   #team-cards {
     width: auto;
     min-width: 250px;
@@ -576,12 +589,15 @@ body {
   #wrapper-try {
     top: -30px;
     height: 300px;
+
     &>p {
       max-width: 80vw;
       text-align: center;
     }
+
     &>.row {
       flex-direction: column;
+
       &>* {
         text-align: center;
       }
